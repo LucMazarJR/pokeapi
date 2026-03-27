@@ -11,7 +11,7 @@ import { LucideSearch } from '@lucide/angular';
 export class Pokemon {
   pokeApi = inject(PokeResquests);
 
-  isInited = signal<boolean>(false);
+  searchType = signal<string | null>(null);
   pokemonNameModel = signal<string>('');
   searchPokemonData = signal<PokemonData | null>(null);
 

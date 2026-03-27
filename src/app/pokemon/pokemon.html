@@ -1,5 +1,5 @@
 <div class="p-6 flex flex-col items-center justify-center min-h-[80vh]">
-    @if (isInited()) {
+    @if (searchType() !== null) {
     <form action="" class="w-full flex flex-col items-center gap-6" (submit)="onSubmit($event)">
         <div class="flex flex-col w-[20%] gap-2">
             <label for="entry" class="text-center font-semibold text-xl">Pokemon</label>
@@ -16,21 +16,28 @@
     </form>
     }
     @else {
-        <div class="space-y-28">
-            <div class="flex flex-col items-center justify-center gap-8">
-                <h2 class="font-bold text-8xl text-center">Bem vindo <br> à <span class="text-[#b22200]">PokeSearch</span></h2>
-                <p class="text-xl bg-green-300 p-3 px-4 rounded-2xl">Escolha uma opção para começar a busca</p>
-            </div>
-            <div class="flex gap-8 justify-between">
-                <button class="py-6 px-10 bg-blue-200 border border-blue-400 rounded-2xl font-medium flex items-center gap-2">
-                    <span class="text-white bg-blue-800 rounded-full flex items-center justify-center h-8 w-8">123</span>
-                    Buscar por Número
-                </button>
-                <button class="py-6 px-10 bg-red-200 border border-red-400 rounded-2xl font-medium flex gap-2 items-center">
-                    <svg lucideSearch class="rounded-full bg-red-600 p-2 text-white" size="32px"></svg>
-                    Buscar por Nome
-                </button>
-            </div>
+    <div class="space-y-28">
+        <div class="flex flex-col items-center justify-center gap-8">
+            <h2 class="font-bold text-8xl text-center">Bem vindo <br> à <span class="text-[#b22200]">PokeSearch</span>
+            </h2>
+            <p class="text-xl bg-green-300 p-3 px-4 rounded-2xl">Escolha uma opção para começar a busca</p>
         </div>
+        <div class="flex gap-8 justify-between">
+            <button
+                class="py-6 px-10 bg-blue-200 border border-blue-400 hover:bg-blue-300 rounded-2xl font-medium flex items-center gap-2 hover:scale-105 transition-all ease-in-out duration-100 cursor-pointer"
+                (click)="searchType.set('id')"
+            >
+                <span class="text-white bg-blue-800 rounded-full flex items-center justify-center h-8 w-8">123</span>
+                Buscar por Número
+            </button>
+            <button
+                class="py-6 px-10 bg-red-200 border border-red-400 rounded-2xl font-medium flex gap-2 items-center hover:scale-105 transition-all ease-in-out duration-100 cursor-pointer hover:bg-red-300"
+                (click)="searchType.set('name')"
+            >
+                <svg lucideSearch class="rounded-full bg-red-600 p-2 text-white" size="32px"></svg>
+                Buscar por Nome
+            </button>
+        </div>
+    </div>
     }
 </div>
