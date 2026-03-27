@@ -1,8 +1,16 @@
 <div class="p-6">
-    <form action="" class="w-full flex flex-col items-center">
+    <form action="" class="w-full flex flex-col items-center gap-6" (submit)="onSubmit($event)">
         <div class="flex flex-col w-[20%] gap-2">
             <label for="entry" class="text-center font-semibold text-xl">Pokemon</label>
             <input type="text" class="p-2 border rounded-lg bg-white" id="entry" [formField]="pokemonForm">
         </div>
+        <button type="submit" class="px-4 py-2 rounded-lg bg-black text-white">Buscar</button>
+
+        @if (searchPokemonData(); as pokemon) {
+            <div class="flex flex-col items-center gap-2">
+                <h2 class="text-2xl font-bold capitalize">{{ pokemon.name }}</h2>
+                <img [src]="pokemon.imageUrl" [alt]="pokemon.name" class="w-44 h-44 object-contain">
+            </div>
+        }
     </form>
 </div>
