@@ -1,10 +1,11 @@
 import { Component, inject, signal } from '@angular/core';
 import { form, FormField } from '@angular/forms/signals';
 import { PokeResquests, PokemonData } from './poke-resquests';
+import { LucideSearch } from '@lucide/angular';
 
 @Component({
   selector: 'app-pokemon',
-  imports: [FormField],
+  imports: [FormField, LucideSearch],
   templateUrl: './pokemon.html',
 })
 export class Pokemon {
