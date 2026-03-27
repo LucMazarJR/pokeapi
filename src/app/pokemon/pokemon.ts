@@ -1,10 +1,14 @@
 import { Component, signal } from '@angular/core';
+import { form, FormField } from '@angular/forms/signals';
 
 @Component({
   selector: 'app-pokemon',
-  imports: [],
+  imports: [FormField],
   templateUrl: './pokemon.html',
 })
 export class Pokemon {
-  test = signal('')
+  pokemonNameModel = signal<string>('')
+  pokemonForm = form(this.pokemonNameModel)
+
+
 }
