@@ -3,5 +3,5 @@
 @import 'tailwindcss';
 
 body{
-    background-color: var(--color-red-50)
+    background-color: var(--color-red-50);
 }

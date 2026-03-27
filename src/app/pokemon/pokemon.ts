@@ -10,10 +10,12 @@ import { PokeResquests, PokemonData } from './poke-resquests';
 export class Pokemon {
   pokeApi = inject(PokeResquests);
 
+  isInited = signal<boolean>(false);
   pokemonNameModel = signal<string>('');
-  pokemonForm = form(this.pokemonNameModel);
   searchPokemonData = signal<PokemonData | null>(null);
 
+  pokemonForm = form(this.pokemonNameModel);
+  
   onSubmit(event: Event): void {
     event.preventDefault();
     const pokemonName = this.pokemonForm().value().trim();
