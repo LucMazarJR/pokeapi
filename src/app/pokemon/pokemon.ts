@@ -31,4 +31,30 @@ export class Pokemon {
       error: () => this.searchPokemonData.set(null),
     });
   }
+
+  goToNextPokemon(): void {
+    const currentPokemon = this.searchPokemonData();
+
+    if (!currentPokemon) {
+      return;
+    }
+
+    this.pokeApi.getPokemonByName(currentPokemon.id + 1).subscribe({
+      next: (pokemon) => this.searchPokemonData.set(pokemon),
+      error: () => this.searchPokemonData.set(null),
+    });
+  }
+
+  goToPreviousPokemon(): void {
+    const currentPokemon = this.searchPokemonData();
+
+    if (!currentPokemon || currentPokemon.id <= 1) {
+      return;
+    }
+
+    this.pokeApi.getPokemonByName(currentPokemon.id - 1).subscribe({
+      next: (pokemon) => this.searchPokemonData.set(pokemon),
+      error: () => this.searchPokemonData.set(null),
+    });
+  }
 }

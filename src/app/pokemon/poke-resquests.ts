@@ -28,10 +28,11 @@ interface PokeApiPokemonResponse {
 export class PokeResquests {
   private http = inject(HttpClient);
 
-  public getPokemonByName(name: string): Observable<PokemonData> {
-    const formatedPokemonName = name.toLocaleLowerCase();
+  public getPokemonByName(name: string | number): Observable<PokemonData> {
+    const formatedPokemonParameter = String(name).trim().toLowerCase();
+
     return this.http
-      .get<PokeApiPokemonResponse>(`https://pokeapi.co/api/v2/pokemon/${formatedPokemonName}`)
+      .get<PokeApiPokemonResponse>(`https://pokeapi.co/api/v2/pokemon/${formatedPokemonParameter}`)
       .pipe(
         map((pokemon) => ({
           id: pokemon.id,

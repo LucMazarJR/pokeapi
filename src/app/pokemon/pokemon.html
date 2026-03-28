@@ -5,7 +5,7 @@
             <label for="entry" class="text-center font-semibold text-xl">{{ searchType() === "id" ? "Digite o ID do pokemon para iniciar a busca" : "Digite o nome do pokemon para iniciar a busca"}}</label>
             <input type="text" class="p-2 border rounded-lg bg-white" id="entry" [formField]="pokemonForm">
         </div>
-        <button type="submit" class="px-4 py-2 rounded-lg bg-black text-white">Buscar</button>
+        <button type="submit" class="px-4 py-2 rounded-lg bg-black text-white hover:scale-105 transition-all ease-in-out duration-100 cursor-pointer hover:bg-gray-900">Buscar</button>
 
         @if (searchPokemonData(); as pokemon) {
         <div class="grid grid-cols-7 bg-[#cc5e5e] py-4  min-h-[50%] rounded-2xl gap-8">
@@ -19,8 +19,23 @@
                 <p class="flex items-center gap-2"><span class="font-medium bg-red-700 text-white p-1 rounded-lg">Altura: </span> {{ pokemon.height / 10 }}m</p>
             </div>
             <div class="col-span-2 flex flex-col justify-between items-end m-8">
-                <button class="p-4 px-12 bg-blue-700 text-white rounded-lg flex hover:scale-105 transition-all ease-in-out duration-100 cursor-pointer hover:bg-blue-600"> <svg lucideArrowLeft></svg> Anterior</button>
-                <button class="p-4 px-8 bg-green-700 text-white rounded-lg flex hover:scale-105 transition-all ease-in-out duration-100 cursor-pointer hover:bg-green-600">Ver proximo <svg lucideArrowRight></svg></button>
+                <button
+                    type="button"
+                    class="p-4 px-12 bg-blue-700 text-white rounded-lg flex hover:scale-105 transition-all ease-in-out duration-100 cursor-pointer hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+                    (click)="goToPreviousPokemon()"
+                    [disabled]="pokemon.id <= 1"
+                >
+                    <svg lucideArrowLeft></svg>
+                    Anterior
+                </button>
+                <button
+                    type="button"
+                    class="p-4 px-8 bg-green-700 text-white rounded-lg flex hover:scale-105 transition-all ease-in-out duration-100 cursor-pointer hover:bg-green-600"
+                    (click)="goToNextPokemon()"
+                >
+                    Ver proximo
+                    <svg lucideArrowRight></svg>
+                </button>
             </div>
         </div>
         }
