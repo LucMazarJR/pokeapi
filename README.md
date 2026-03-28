@@ -1,59 +1,79 @@
-# Pokeapi
+# PokeSearch
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.2.
+Aplicacao web criada com Angular para buscar informacoes de Pokemons usando a PokeAPI.
 
-## Development server
+## Sobre o projeto
 
-To start a local development server, run:
+Este projeto foi desenvolvido como parte da disciplina de Desenvolvimento Web 1.
 
-```bash
-ng serve
-```
+Mais do que um produto final complexo, ele foi pensado como uma experiencia pratica de aprendizado do Angular: entender a estrutura do framework, componentizacao, consumo de API, formularios e fluxo de dados no template.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Por esse motivo, algumas partes da aplicacao ficaram mais simples de proposito. A ideia principal foi priorizar o aprendizado e a consolidacao dos conceitos do framework durante a primeira experiencia com Angular.
 
-## Code scaffolding
+## Objetivos de aprendizado
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- Praticar estrutura de projeto em Angular
+- Consumir dados de API REST com servicos
+- Trabalhar com sinais e renderizacao no template
+- Montar fluxo de busca por nome/ID
+- Implementar navegacao entre registros (anterior/proximo)
 
-```bash
-ng generate component component-name
-```
+## Funcionalidades atuais
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+- Busca de Pokemon por nome ou numero
+- Exibicao de dados principais (id, nome, peso, altura, imagem)
+- Navegacao para o Pokemon anterior e proximo
+- Interface simples para facilitar a leitura e evolucao do codigo
 
-```bash
-ng generate --help
-```
+## Tecnologias
 
-## Building
+- Angular 21
+- TypeScript
+- RxJS
+- Tailwind CSS
+- Lucide Icons
 
-To build the project run:
+## Como executar
 
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+1. Instale as dependencias:
 
 ```bash
-ng test
+npm install
 ```
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
+2. Inicie o servidor de desenvolvimento:
 
 ```bash
-ng e2e
+npm start
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+3. Abra no navegador:
 
-## Additional Resources
+```text
+http://localhost:4200
+```
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Scripts uteis
+
+```bash
+npm start   # executa o projeto em modo desenvolvimento
+npm run build   # gera build de producao
+npm test    # executa os testes
+```
+
+## Estrutura principal
+
+```text
+src/app/
+	layout/
+	pokemon/
+		poke-resquests.ts
+		pokemon.ts
+		pokemon.html
+```
+
+
+## Creditos
+
+- API: https://pokeapi.co
+- Framework: https://angular.dev
