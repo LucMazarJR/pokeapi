@@ -1,17 +1,17 @@
 import { Component, inject, signal } from '@angular/core';
 import { form, FormField } from '@angular/forms/signals';
 import { PokeResquests, PokemonData } from './poke-resquests';
-import { LucideSearch } from '@lucide/angular';
+import { LucideArrowLeft, LucideArrowRight, LucideSearch, LucideDynamicIcon, LucideAArrowUp } from '@lucide/angular';
 
 @Component({
   selector: 'app-pokemon',
-  imports: [FormField, LucideSearch],
+  imports: [FormField, LucideSearch, LucideArrowLeft, LucideArrowRight],
   templateUrl: './pokemon.html',
 })
 export class Pokemon {
   pokeApi = inject(PokeResquests);
 
-  searchType = signal<string | null>("id"); // Teste, trocar id por null
+  searchType = signal<string | null>("id"); // Teste, trocar id por NUll
   pokemonNameModel = signal<string>('');
   searchPokemonData = signal<PokemonData | null>(null);
 

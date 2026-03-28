@@ -1,4 +1,4 @@
-<div class="p-6 flex flex-col items-center justify-center min-h-[80vh]">
+<div class="p-6 flex flex-col items-center">
     @if (searchType() !== null) {
     <form action="" class="w-full flex flex-col items-center gap-6" (submit)="onSubmit($event)">
         <div class="flex flex-col w-[30%] gap-2">
@@ -8,15 +8,26 @@
         <button type="submit" class="px-4 py-2 rounded-lg bg-black text-white">Buscar</button>
 
         @if (searchPokemonData(); as pokemon) {
-        <div class="flex flex-col items-center gap-2">
-            <h2 class="text-2xl font-bold capitalize">{{ pokemon.name }}</h2>
-            <img [src]="pokemon.imageUrl" [alt]="pokemon.name" class="w-44 h-44 object-contain">
+        <div class="grid grid-cols-7 bg-[#cc5e5e] py-4  min-h-[50%] rounded-2xl gap-8">
+            <div class="col-span-2 p-4 flex justify-center">
+                <img [src]="(pokemon.imageUrl)" alt="pokemonImg" class="bg-white rounded-xl h-100 w-100">
+            </div>
+            <div class="col-span-3 my-4 p-6 bg-red-100 rounded-2xl text-2xl flex-col flex justify-between">
+                <p class="flex items-center gap-2"><span class="font-medium bg-red-700 text-white p-1 rounded-lg">ID: </span> {{ pokemon.id }}</p>
+                <p class="flex items-center gap-2"><span class="font-medium bg-red-700 text-white p-1 rounded-lg">Nome: </span> {{ pokemon.name }}</p>
+                <p class="flex items-center gap-2"><span class="font-medium bg-red-700 text-white p-1 rounded-lg">Peso: </span> {{ pokemon.weight / 10 }}Kg</p>
+                <p class="flex items-center gap-2"><span class="font-medium bg-red-700 text-white p-1 rounded-lg">Altura: </span> {{ pokemon.height / 10 }}m</p>
+            </div>
+            <div class="col-span-2 flex flex-col justify-between items-end m-8">
+                <button class="p-4 px-12 bg-blue-700 text-white rounded-lg flex hover:scale-105 transition-all ease-in-out duration-100 cursor-pointer hover:bg-blue-600"> <svg lucideArrowLeft></svg> Anterior</button>
+                <button class="p-4 px-8 bg-green-700 text-white rounded-lg flex hover:scale-105 transition-all ease-in-out duration-100 cursor-pointer hover:bg-green-600">Ver proximo <svg lucideArrowRight></svg></button>
+            </div>
         </div>
         }
     </form>
     }
     @else {
-    <div class="space-y-28">
+    <div class="space-y-28 flex flex-col min-h-[80vh] justify-center">
         <div class="flex flex-col items-center justify-center gap-8">
             <h2 class="font-bold text-8xl text-center">Bem vindo <br> à <span class="text-[#b22200]">PokeSearch</span>
             </h2>

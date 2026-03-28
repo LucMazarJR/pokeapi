@@ -6,6 +6,9 @@ export interface PokemonData {
   id: number;
   name: string;
   imageUrl: string;
+  types: string[];
+  height: number;
+  weight: number;
 }
 
 interface PokeApiPokemonResponse {
@@ -14,6 +17,9 @@ interface PokeApiPokemonResponse {
   sprites: {
     front_default: string | null;
   };
+  types: {type: {name: string}}[];
+  height: number;
+  weight: number;
 }
 
 @Injectable({
@@ -31,6 +37,9 @@ export class PokeResquests {
           id: pokemon.id,
           name: pokemon.name,
           imageUrl: pokemon.sprites.front_default ?? '',
+          types: pokemon.types.map(object => object.type.name),
+          height: pokemon.height,
+          weight: pokemon.weight,
         }))
       );
   }
