@@ -11,7 +11,7 @@ import { LucideArrowLeft, LucideArrowRight, LucideSearch, LucideDynamicIcon, Luc
 export class Pokemon {
   pokeApi = inject(PokeResquests);
 
-  searchType = signal<string | null>("id"); // Teste, trocar id por NUll
+  searchType = signal<string | null>(null); // Teste, trocar id por NUll
   pokemonNameModel = signal<string>('');
   searchPokemonData = signal<PokemonData | null>(null);
 
